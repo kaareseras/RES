@@ -4,8 +4,8 @@ It's like a swiss army knife :-)
 
 Features
 
-ESP32 on an NodeMCU board, supporting WiFi, Nluuetooth
-AI Thinker A7 supporting WiFi, GPS and GPRS
-Releay for controlling almost anything
-SD-card for storing data while offline
-Voltage regulator supporting input from 5-30 Volt
+- ESP32 on an NodeMCU board, supporting WiFi, Bluuetooth
+- AI Thinker A7 supporting WiFi, GPS and GPRS
+- Releay for controlling almost anything
+- SD-card for storing data while offline
+- Voltage regulator supporting input from 5-30 Volt
