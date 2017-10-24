@@ -38,6 +38,7 @@ int relay = LOW;
 String boundTo;
 bool unBound = true;
 bool gpsSaved = false;
+bool relayState = false;
 
 TinyGPSPlus gps;
 TinyGPSPlus gpsold;
@@ -77,6 +78,12 @@ void setup() {
   initDevice(false);
   if (unBound) {
     ble.begin(chipID);
+  } else {
+    if (relayState) {
+      // Activate relay
+      relay = HIGH;
+      digitalWrite(Relay, relay);      
+    }
   }
 }
 
@@ -221,6 +228,7 @@ void initDevice(boolean update) {
       preferences.putString("boundTo", sender);
     }
   } else {
+    relayState = preferences.getBool("relayState", false);
     gpsSaved = preferences.getBool("gpsSaved", false);
     if (gpsSaved) {
       preferences.getBytes("gps", &gpsold, sizeof(gps));
@@ -327,6 +335,7 @@ void relayOn()
   relay = HIGH;
   digitalWrite(Relay, relay);
   relayStatus();
+  saveRelayState(true);
 }
 
 void relayOff()
@@ -334,6 +343,14 @@ void relayOff()
   relay = LOW;
   digitalWrite(Relay, relay);
   relayStatus();
+  saveRelayState(false); 
+}
+
+void saveRelayState(bool state) {
+  preferences.begin("stopme", false);
+  Serial.println(F("Saving relayState"));
+  preferences.putBool("relayState", state);
+  preferences.end();
 }
 
 void relayStatus()
