@@ -4,7 +4,7 @@ It's like a swiss army knife :-)
 
 Features
 
-- ESP32 on an NodeMCU board, supporting WiFi, Bluuetooth
+- ESP32 on an NodeMCU board, supporting WiFi, Bluetooth
 - AI Thinker A7 supporting WiFi, GPS and GPRS
 - Releay for controlling almost anything
 - SD-card for storing data while offline
