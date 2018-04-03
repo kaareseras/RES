@@ -9,3 +9,4 @@ Features
 - Releay for controlling almost anything
 - SD-card for storing data while offline
 - Voltage regulator supporting input from 5-30 Volt
+
